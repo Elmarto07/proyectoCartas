@@ -1,0 +1,24 @@
+package lbert;
+
+public class Min extends pedirnumeros {
+
+	@Override
+	public void establecervalor() {
+		// TODO Auto-generated method stub
+		
+		for(int i = 0; i<=10; i++) {
+			if(i%2 == 0)
+				this.n+= 1;
+		}
+	}
+
+	
+	
+	
+
+	
+		
+
+	
+}
+

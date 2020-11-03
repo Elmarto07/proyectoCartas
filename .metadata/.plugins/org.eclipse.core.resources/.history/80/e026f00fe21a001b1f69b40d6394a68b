@@ -1,0 +1,29 @@
+package lbert;
+
+public class pedirnumeros {
+	
+	//atributos
+	private int nPares = 0;
+	
+	
+	 
+	
+	
+	
+
+		
+		
+		
+	
+
+
+	public int getnPares() {
+		return nPares;
+	}
+
+
+	public void setnPares(int nPares) {
+		this.nPares = nPares;
+	}
+
+}

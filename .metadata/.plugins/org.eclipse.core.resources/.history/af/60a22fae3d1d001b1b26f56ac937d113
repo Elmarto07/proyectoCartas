@@ -1,0 +1,9 @@
+package ejerciciocartas;
+
+public class player {
+	
+	private String name;
+	private String surname;
+	private String alias;
+
+}

@@ -1,0 +1,21 @@
+package lbert;
+
+public class Min {
+	
+	private  void sexo() {
+		
+		System.out.print("Hola");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Min s = new Min();
+		
+		s.sexo();
+		
+		
+
+	}
+}
+

@@ -1,0 +1,38 @@
+package nomina;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import nomina.Nomina;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		System.out.print("Intrpduce tu nombre: ");
+		String name = br.readLine();
+		
+		System.out.print("Intrpduce tu surname: ");
+		String surname = br.readLine();
+		
+		System.out.print("Intrpduce tu surname2: ");
+		String surname2 = br.readLine();
+		
+		System.out.print("Intrpduce tu sueldo bruto: ");
+		double neto = Double.parseDouble(br.readLine());
+		
+		Nomina martin = new Nomina(name, surname, surname2, neto);
+		
+		martin.printNameYSurname();
+		martin.printIRPF();
+		martin.printSS();
+		martin.printNeto();
+		
+	}
+
+}

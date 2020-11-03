@@ -1,0 +1,62 @@
+package nomina;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import nomina.Nomina;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		
+		
+		System.out.print("Introduzca su nombre: ");
+		try {
+			this.setName(br.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.print("Introduzca su pirmer apellido: ");
+		try {
+			this.setSurname(br.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.print("Introduzca su segundo apellido: ");
+		try {
+			this.setSurname2(br.readLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.print("intraduzca su sueldo bruto mensual: ");
+		try {
+			this.bruto = Double.parseDouble(br.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		Nomina nom = new Nomina(name , surname , suername2 , bruto);
+		
+
+	}
+
+}

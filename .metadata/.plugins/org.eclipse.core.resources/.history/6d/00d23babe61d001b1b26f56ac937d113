@@ -1,0 +1,16 @@
+package ejerciciocartas;
+
+public class makeCarta {
+	
+	//Atributos
+	
+	private String numero;
+	private String palo;
+	
+	public makeCarta(String numero , String palo);
+	
+	
+	
+	
+
+}

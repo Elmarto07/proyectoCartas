@@ -1,0 +1,59 @@
+package nomina;
+
+public class Nomina {
+	
+	private String name;
+	private String surname;
+	private String surname2;
+	private double SS = 0.10;
+	private double IRPF = 0.20;
+	private double bruto;
+	
+	//Constructores
+	
+	Nomina(String name , String surname , String surname2 , double bruto){
+		 this.name = name;
+		 this.surname = surname;
+		 this.surname2 = surname2;
+		 this.bruto = bruto;
+	}
+	
+	//getters y setters
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSurname() {
+		return surname;
+	}
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+	public String getsurname2() {
+		return surname2;
+	}
+	public void setsurname2(String surname2) {
+		this.surname2 = surname2;
+	}
+	public double getbruto() {
+		return bruto;
+	}
+	public void setbruto(double bruto) {
+		this.bruto = bruto;
+	}
+	public double getIRPF() {
+		return IRPF;
+	}
+	public void setIRPF(double IRPF) {
+		this.IRPF = IRPF;
+	}
+	public double getSS() {
+		return SS;
+	}
+	public void setSS(double SS) {
+		this.SS = SS;
+	}
+}

@@ -1,0 +1,29 @@
+package lbert;
+
+public class Min {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		pedirnumeros par = new pedirnumeros();
+		
+		
+		
+			int n = 0;
+			
+			for(int i = 0; i<=10; i++) {
+				
+				if(i%2 == 0) {
+					par.setnPares(par.getnPares() + 1);
+					
+				}
+				
+				
+				
+			}
+			System.out.println("la suma de pares es: " + par.getnPares());
+		
+	}
+
+}
+
