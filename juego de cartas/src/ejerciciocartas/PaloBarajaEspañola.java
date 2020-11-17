@@ -2,6 +2,6 @@ package ejerciciocartas;
 
 public enum PaloBarajaEspañola {
 	
-	ASES,SOTAS,CABALLOS,REYES;
+	ASES,JOTAS,CABALLOS,REYES;
 
 }
