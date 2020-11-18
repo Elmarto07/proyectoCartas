@@ -8,12 +8,11 @@ public class Player {
 	
 	private String name;
 	private String surname;
+	private String surname2;
 	private String alias;
 	private boolean maquina;
-	private ArrayList<Carta> cartasPlayer1;
-	private ArrayList<Carta> cartasPlayer2;
+	private ArrayList<Carta> cartasPlayer;
 	private double puntuacionPlayer;
-	private String surname2;
 
 	
 	public Player(String name , String surname , String surname2, String alias, boolean maquina) {
@@ -25,27 +24,27 @@ public class Player {
 		this.maquina = maquina;
 		
 	}
-	
-	
-	
-	//Tengo que sumar los numeros del array de cada mazo propio
 
-	public void devolverPuntuacion() {
-		double puntuacion;
-		double aux;
-		
-		
-		if(n>=7) {
-			aux = 0,5;
-		}else if(n<7) {
-			aux = n;
-		 }
-		puntuacion = puntuacion +aux;
-		
-		
-		
+	public void mostrarCartasPlayer() {
+		System.out.println("Cartas jugador: " + this.name + " " + this.surname + " " + this.surname2);
+		System.out.println("------------------------");
+		for (Carta carta: this.cartasPlayer) {
+			System.out.println(carta.toString());
+		}
+		System.out.println("------------------------");
 	}
 	
+	public void mostrarResumenCartas() {
+		
+		
+	     	for (Carta carta: this.cartasPlayer) {
+	 			System.out.println("Carta: " + carta.toString());
+	 		}
+	 		System.out.println("------------------------");
+	     }
+		
+	
+	 
 	
 	
 
@@ -53,81 +52,35 @@ public class Player {
 		return name;
 	}
 
-
-	
-
-
 	public String getSurname() {
 		return surname;
 	}
-
-
-	
 
 	public String getAlias() {
 		return alias;
 	}
 
-
-	
-
 	public boolean isMaquina() {
 		return maquina;
 	}
-
-
-	public ArrayList<Carta> getCartasPlayer1() {
-		return cartasPlayer1;
-	}
-
 
 	public double getPuntuacionPlayer() {
 		return puntuacionPlayer;
 	}
 
-
 	public void setPuntuacionPlayer(double puntuacionPlayer) {
 		this.puntuacionPlayer = puntuacionPlayer;
 	}
-
-
-
 
 	public String getSurname2() {
 		return surname2;
 	}
 
-
-
-
-	public ArrayList<Carta> getCartasPlayer2() {
-		return cartasPlayer2;
+	public ArrayList<Carta> getCartasPlayer() {
+		return cartasPlayer;
 	}
-	
-	
-	
-		public void mostrarCartas1() {
-				
-				for(int i = 0; i<cartasPlayer1.size(); i++) {
-					System.out.println(cartasPlayer1.get(i).toString());
-				}
-		}
-		
-		public void mostrarCartas2() {
-			
-			for(int i = 0; i<cartasPlayer2.size(); i++) {
-				System.out.println(cartasPlayer2.get(i).toString());
-			}
-		
-		}
-		
-		public void elegirContinuarMaquina() {
-			
-			
-			
-		}
-	
-	
-	
-	
+
+	public void setCartasPlayer(ArrayList<Carta> cartasPlayer) {
+		this.cartasPlayer = cartasPlayer;
+	}
 }

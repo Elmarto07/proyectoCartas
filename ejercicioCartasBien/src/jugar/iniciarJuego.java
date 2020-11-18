@@ -7,195 +7,199 @@ import java.io.InputStreamReader;
 import Carta.Carta;
 import baraja.Baraja;
 import baraja.TipoDeBaraja;
-import nomina.Nomina;
 import player.Player;
 
 public class iniciarJuego {
-	
-	
-	//Atributos
-	
-	private int nJugadores;
-	private Player cartaPropia;
-	private Player J1;
-	private Player J2;
-	private Player M;
-	private Baraja Bj;
-	private Carta carta;
-	
-	
-	public void comienzo() throws IOException {
-		
-		mostrarCabeceraJuego();
-		solicitarNumeroJugadores();
-		solicitarDatosJugador();
-		solicitarTipoBaraja();
-		iniciarGame1();
-	}
-	
-	
-	
-	public void mostrarCabeceraJuego() {
-		
-		System.out.println("****************************************");
-		System.out.println("*********JUEGO DEL SIETE Y MEDIO********");
-		System.out.println("****************************************");
-	}
-	
-	public void solicitarNumeroJugadores() throws IOException {
-		
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader br = new BufferedReader(isr);
-		
-		System.out.println("diga nº de jugadores: ");
-		System.out.println("Player vs IA (0) o PVP local (1)");
-		this.nJugadores = Integer.parseInt(br.readLine());
-	}
-	
-	public void solicitarDatosJugador() throws IOException {
-			
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(isr);
 
-			System.out.println("Intrpduce tu nombre: ");
-			String name = br.readLine();
-			
-			System.out.println("Intrpduce tu apellido1  ");
-			String surname = br.readLine();
-			
-			System.out.println("Intrpduce tu apellido1  ");
-			String surnames = br.readLine();
-			
-			System.out.println("Intrpduce tu alias: ");
-			String alias = br.readLine();
-			
-			Player J1 = new Player(name, surname , surnames, alias, false);
+    private int nJugadores;
+    private Player J1;
+    private Player J2;
+    private Baraja Bj;
 
-			
-			if(this.nJugadores == 1) {
-				System.out.println("Introduzca los datos del jugador 2 ");
-				
-				System.out.println("Intrpduce tu nombre: ");
-				String name2 = br.readLine();
-				
-				System.out.println("Intrpduce tu apellido1: ");
-				String surnames2 = br.readLine();
-				
-				System.out.println("Intrpduce tu alias: ");
-				String alias2 = br.readLine();
-				
-				Player J2 = new Player(name2, surnames2, surnames2, alias, false);
+    public void mostrarCabeceraJuego() {
 
-				}else if(this.nJugadores == 0) {
-					
-					Player M = Player("player2","auto", "“generado", "autogen" , true);
-					
-				}
-					
-					
-					
-					
-	}
-	
-	
-	
-	public void solicitarTipoBaraja() throws IOException {
-		
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader br = new BufferedReader(isr);
-		
-		System.out.println("Que tipo de baraja desea emplear?: ");
-		System.out.println("E para la española y F para la francesa");
-		String tipobaraja = br.readLine();
-		if(tipobaraja == "E") {
-			this.Bj = new Baraja(TipoDeBaraja.ESPAÑOLA);
-		} else if (tipobaraja == "F") {
-			this.Bj = new Baraja(TipoDeBaraja.FRANCESA);
-		}
-	}
-	
-	
-	
-	
-	
-	public void iniciarGame1() throws IOException {
-		
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader br = new BufferedReader(isr);
-		
-		
-		Bj.barajar();
-		String x="S";
-		
-		System.out.println("Inicio jugada jugador 1 -" + " " + J1.getName() + " " + J1.getSurname()+" " + J1.getSurname2()+ " " + J1.getAlias() );
-		
-		while(x.equals("S")) {
-		
-		 cartaPropia.getCartasPlayer1().add( Bj.robarCarta());
-		 System.out.println("Carta: "+ carta.toString());
-		 
-		 System.out.println("quiere cojer otra carta? (S) o (N) ");
-		 x = br.readLine();
-		}
-		if(x.equals("N")) {
-			System.out.println("El jugador 1 se planta con las siguientes cartas ");
-			cartaPropia.mostrarCartas1();
-		}
-		
-		if(this.nJugadores == 1) {
-			
-			 String y="S";
-			 while(y.equals("S")) {
-			 System.out.println("Inicio jugada jugador 2 -" + " " + J2.getName() + J2.getSurname() + J2.getSurname2() + J2.getAlias() );
-			 
-			 cartaPropia.getCartasPlayer2().add( Bj.robarCarta());
-			 System.out.println("Carta: "+ carta.toString());
-			 
-			 System.out.println("quiere cojer otra carta? (S) o (N) ");
-			 x = br.readLine();
-			 }
-			 if(y.equals("N")) {
-					System.out.println("El jugador 2 se planta con las siguientes cartas ");
-					cartaPropia.mostrarCartas2();
-				}
-			 
-		}else if(this.nJugadores == 0) {
-			
-			
-			int numero = (int)(Math.random()*10+1);
-			System.out.println("Inicio jugada jugador 2 -" + " " + M.getName() + M.getSurname() + M.getSurname2() + M.getAlias() );
-			
-			 cartaPropia.getCartasPlayer2().add( Bj.robarCarta());
-			 System.out.println("Carta: "+ carta.toString());
-			 
-			 }
-			if(numero == 3 ) {
-				System.out.println("El jugador 2 se planta con las siguientes cartas ");
-				cartaPropia.mostrarCartas2();
-			}
-			
-			
-		//ya la parte final
-			System.out.println("++++Resumen de la jugada+++");
-			System.out.println("Jugador 1 con "+ devolverPuntuacion() + "y estas cartas: ");
-			System.out.println("Carta: "+ );
-		
-		
-		
-		
-		
-		
-	}
-	
-	
-	
-	
+        System.out.println("****************************************");
+        System.out.println("*********JUEGO DEL SIETE Y MEDIO********");
+        System.out.println("****************************************");
+    }
+
+    public void solicitarNumeroJugadores() throws IOException {
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+
+        System.out.println("diga nº de jugadores: ");
+        System.out.println("Player vs IA (0) o PVP local (1)");
+        this.nJugadores = Integer.parseInt(br.readLine());
+    }
+
+    public void solicitarDatosJugador() throws IOException {
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        String name, surname, surnames, alias;
+
+        System.out.println("Intrpduce tu nombre: ");
+        name = br.readLine();
+
+        System.out.println("Intrpduce tu apellido1  ");
+        surname = br.readLine();
+
+        System.out.println("Intrpduce tu apellido2  ");
+        surnames = br.readLine();
+
+        System.out.println("Intrpduce tu alias: ");
+        alias = br.readLine();
+
+        this.J1 = new Player(name, surname, surnames, alias, false);
+
+        if (this.nJugadores == 1) {
+            System.out.println("Introduzca los datos del jugador 2 ");
+
+            System.out.println("Intrpduce tu nombre: ");
+            name = br.readLine();
+
+            System.out.println("Intrpduce tu apellido1  ");
+            surname = br.readLine();
+
+            System.out.println("Intrpduce tu apellido2  ");
+            surnames = br.readLine();
+
+            System.out.println("Intrpduce tu alias: ");
+            alias = br.readLine();
+
+            this.J2 = new Player(name, surname, surnames, alias, false);
+
+        } else if (this.nJugadores == 0) {
+           this.J2 = new Player("player2", "auto", "generado", "autogen", true);
+        }
+    }
+
+    public void solicitarTipoBaraja() throws IOException {
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+
+        System.out.println("Que tipo de baraja desea emplear?: ");
+        System.out.println("E para la española y F para la francesa");
+        String tipobaraja = br.readLine();
+        if (tipobaraja.equals("E")) {
+            this.Bj = new Baraja(TipoDeBaraja.ESPAÑOLA);
+        } else if (tipobaraja.equals("F")) {
+            this.Bj = new Baraja(TipoDeBaraja.FRANCESA);
+        }
+    }
+
+
+    public void iniciarGame(Player player ,int i) throws IOException {
+
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        Carta cartaRobada;
+        Bj.barajar();
+        String x = "S";
+        
+        
+        if(player.isMaquina() == true) {
+        	
+        	System.out.println("Inicio jugada jugador " + i + "-"  + player.getName() + " " + player.getSurname() + " " + player.getSurname2() + " " + player.getAlias());
+        	
+        	  while (x.equals("S") || player.getPuntuacionPlayer() <= 7.5) {
+                  cartaRobada = Bj.robarCarta();
+                  player.getCartasPlayer().add(cartaRobada);
+                  
+                  if (cartaRobada.getNumero() <= 7) {
+                      player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 1);
+                  } else if (cartaRobada.getNumero() > 7) {
+                      player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 0.5);
+                  }
+                  
+                      System.out.println("Carta: " + cartaRobada.toString());
+                      
+              int numero = (int)(Math.random()*10+1);       
+              if(numero == 3) {
+            	  x = "N";
+              }
+                  
+        }
+        
+        
+        
+        System.out.println("Inicio jugada jugador " + i + "-"  + player.getName() + " " + player.getSurname() + " " + player.getSurname2() + " " + player.getAlias());
+
+        // Quieres que el jugador termine de jugar si la puntuación supera el 7.5
+        while (x.equals("S") || player.getPuntuacionPlayer() <= 7.5) {
+            cartaRobada = Bj.robarCarta();
+            player.getCartasPlayer().add(cartaRobada);
+
+            // Actualiza la puntuación del jugador
+            if (cartaRobada.getNumero() <= 7) {
+                player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 1);
+            } else if (cartaRobada.getNumero() > 7) {
+                player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 0.5);
+            }
+
+            System.out.println("Carta: " + cartaRobada.toString());
+            
+            if(player.isMaquina() == true) {
+            	  int numero = (int)(Math.random()*10+1);       
+                  if(numero == 3) {
+                	  x = "N";
+                  }else if((6.5 <= player.getPuntuacionPlayer()) || (player.getPuntuacionPlayer()  >= 7.5)) {
+                	  x = "N";
+                  }else {
+                	  x = "S";
+                  }
+            }
+                  
+           if(player.isMaquina() == false) {
+        	   
+        	   System.out.println("quiere cojer otra carta? (S) o (N) ");
+               x = br.readLine();
+               
+               if(!x.equals("S") || !x.equals("N")) {
+               	
+               	System.out.println("Tienes que poner S o N");
+               	 System.out.println("quiere cojer otra carta? (S) o (N) ");
+                    x = br.readLine();
+        	   
+               	}
+               
+           }
+            	
+        }
+        
+        	System.out.println("El jugador"  + i +  "se planta con las siguientes cartas ");
+            player.mostrarCartasPlayer();
+        }
+
+       
+
+        
+       
+    }
+    
+    
+    public void finalGame(Player player, int i) {
+    	
+    	 System.out.println("++++Resumen de la jugada+++");
+         System.out.println("Jugador" + i +" con " + player.getPuntuacionPlayer() + "y estas cartas: ");
+         player.mostrarResumenCartas();
+    	
+    }
+   
+  
+
+
+    public void comienzo() throws IOException {
+        mostrarCabeceraJuego();
+        solicitarNumeroJugadores();
+        solicitarDatosJugador();
+        solicitarTipoBaraja();
+        iniciarGame(J1, 1);
+        iniciarGame(J2, 2);
+        finalGame(J1 , 1);
+        finalGame(J2 , 2);
+    }
 }
 	
-
-	
-	
-	
-	
-
-
