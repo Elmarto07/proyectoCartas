@@ -12,6 +12,7 @@ import player.Player;
 public class iniciarJuego {
 
     private int nJugadores;
+    int ganador;
     private Player J1;
     private Player J2;
     private Baraja Bj;
@@ -100,28 +101,7 @@ public class iniciarJuego {
         String x = "S";
         
         
-        if(player.isMaquina() == true) {
-        	
-        	System.out.println("Inicio jugada jugador " + i + "-"  + player.getName() + " " + player.getSurname() + " " + player.getSurname2() + " " + player.getAlias());
-        	
-        	  while (x.equals("S") || player.getPuntuacionPlayer() <= 7.5) {
-                  cartaRobada = Bj.robarCarta();
-                  player.getCartasPlayer().add(cartaRobada);
-                  
-                  if (cartaRobada.getNumero() <= 7) {
-                      player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 1);
-                  } else if (cartaRobada.getNumero() > 7) {
-                      player.setPuntuacionPlayer(player.getPuntuacionPlayer() + 0.5);
-                  }
-                  
-                      System.out.println("Carta: " + cartaRobada.toString());
-                      
-              int numero = (int)(Math.random()*10+1);       
-              if(numero == 3) {
-            	  x = "N";
-              }
-                  
-        }
+       
         
         
         
@@ -171,7 +151,27 @@ public class iniciarJuego {
         
         	System.out.println("El jugador"  + i +  "se planta con las siguientes cartas ");
             player.mostrarCartasPlayer();
+       }
+        
+       
+    
+    public void elegirGanador() {
+        
+        if((J1.getPuntuacionPlayer() < 7.5) && (J2.getPuntuacionPlayer() < 7.5)) {
+        
+	        if((J1.getPuntuacionPlayer() > J2.getPuntuacionPlayer()) && (J1.getPuntuacionPlayer() < 7.5)) {
+	        	
+	        	ganador = 1;
+	        	
+	        }else if((J2.getPuntuacionPlayer() > J1.getPuntuacionPlayer()) && J2.getPuntuacionPlayer() < 7.5) {
+	        	
+	        	ganador = 2;
+	        	
+	        }
+        
         }
+        
+        
 
        
 
@@ -187,6 +187,25 @@ public class iniciarJuego {
          player.mostrarResumenCartas();
     	
     }
+    
+    public void ganadorFinal(Player player1 , Player player2 , int i , int x) {
+    	
+    	if(ganador == 1) {
+    		
+    		System.out.println("++++Ganador+++");
+    		System.out.println("Ganador "+ player1.getName() + player1.getSurname() + player1.getSurname2() + "("+ player1.getAlias() + ") ¡¡¡Enhorabuena CAMPEÓN!!!");
+    		System.out.println("-------------Fin del juego--------------");
+    		
+    	}else if(ganador == 2) {
+    		
+    		System.out.println("++++Ganador+++");
+    		System.out.println("Ganador "+ player2.getName() + player2.getSurname() + player2.getSurname2() + "("+ player2.getAlias() + ") ¡¡¡Enhorabuena CAMPEÓN!!!");
+    		System.out.println("-------------Fin del juego--------------");
+    		
+    	}
+    	
+    	
+    }
    
   
 
@@ -200,6 +219,7 @@ public class iniciarJuego {
         iniciarGame(J2, 2);
         finalGame(J1 , 1);
         finalGame(J2 , 2);
+        ganadorFinal(J1 , J2 , 1 , 2);
     }
 }
 	
